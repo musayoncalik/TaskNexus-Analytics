@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # 1. PostgreSQL Veritabanı
+  postgres_db:
+    image: postgres:15-alpine
+    container_name: tasknexus_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: gizlisifre
+      POSTGRES_DB: task_platform_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - tasknexus_network
+
+  # 2. Redis Cache Sunucusu
+  redis_cache:
+    image: redis:7-alpine
+    container_name: tasknexus_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    command: redis-server --save 60 1 --loglevel warning
+    volumes:
+      - redisdata:/data
+    networks:
+      - tasknexus_network
+
+volumes:
+  pgdata:
+  redisdata:
+
+networks:
+  tasknexus_network:
+    driver: bridge
