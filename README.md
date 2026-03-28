@@ -18,7 +18,7 @@ Bu proje, **Ölçeklenebilir Görev ve Analiz Platformu Tasarımı (Case Study)*
 
 Proje, Sorumlulukların Ayrılması (Separation of Concerns) prensibine uygun olarak Frontend ve Backend olmak üzere tam bağımsız (decoupled) iki ana modüle ayrılmıştır.
 
-\`\`\`text
+'''
 .
 ├── backend                 # Express.js RESTful API
 │   ├── config              # Veritabanı ve Redis bağlantı ayarları
@@ -57,7 +57,7 @@ Proje, Sorumlulukların Ayrılması (Separation of Concerns) prensibine uygun ol
             ├── Profile.jsx   # Kullanıcı yönetim ekranı
             ├── System.jsx    # Canlı log akışı ve sistem donanım sağlığı (NOC)
             └── Tasks.jsx     # Görev CRUD operasyonları
-\`\`\`
+'''
 
 ---
 
